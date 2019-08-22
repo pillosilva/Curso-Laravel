@@ -14,13 +14,11 @@ class CrearTablaPermisoRol extends Migration
     public function up()
     {
         Schema::create('permiso_rol', function (Blueprint $table) {
-            $table->bigIncrements('id');
-              //fk_rol_id es el nombre de la llave foranea
+              $table->bigIncrements('id');
               $table->unsignedBigInteger('rol_id');
               $table->foreign('rol_id')->references('id')->on('rol')->onDelete('restrict')->onUpdate('restrict');
-              //fk_usuario_id es el nombre de la llave foranea
               $table->unsignedBigInteger('permiso_id');
-              $table->foreign('permiso_id')->references('id')->on('permiso')->onDelete('restrict')->onUpdate('restrict');
+              $table->foreign('permiso_id', 'fk_permisorol_permiso')->references('id')->on('permiso')->onDelete('restrict')->onUpdate('restrict');
               $table->timestamps();
               $table->chrset = 'utf8mb4';
               $table->collation = 'utf8mb4_spanish_ci';
