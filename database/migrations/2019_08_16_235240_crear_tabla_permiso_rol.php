@@ -21,7 +21,9 @@ class CrearTablaPermisoRol extends Migration
               //fk_usuario_id es el nombre de la llave foranea
               $table->unsignedBigInteger('permiso_id');
               $table->foreign('permiso_id')->references('id')->on('permiso')->onDelete('restrict')->onUpdate('restrict');
-            $table->timestamps();
+              $table->timestamps();
+              $table->chrset = 'utf8mb4';
+              $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

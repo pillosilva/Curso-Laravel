@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'InicioController@index');
+/*para cachear ruta*/
+
+
+route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+Route::get('permiso', 'PermisoController@index')->name('permiso');
+Route::get('permiso/crear', 'PermisoController@crear')->name('crear_permiso');
 });
-Route::get('permiso/{nombre}', 'PermisoController@index');

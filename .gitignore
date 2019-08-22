@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/public/assets/lte
 /public/storage
 /storage/*.key
 /vendor
